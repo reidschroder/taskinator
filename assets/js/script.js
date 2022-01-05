@@ -4,6 +4,10 @@ var tasksToDoEl = document.querySelector("#tasks-to-do");
 var tasksInProgressEl = document.querySelector("#tasks-in-progress");
 var tasksCompletedEl = document.querySelector("#tasks-completed");
 
+
+// create array to hold tasks for saving
+var tasks = [];
+
 //replaced console.log for expressions tha create a new task item, style the new task item, add text, and append the element to the task list. This is KEY to dynamically creating elements with the DOM
 var taskFormHandler = function(event) { 
 
@@ -29,7 +33,8 @@ var taskFormHandler = function(event) {
     // package up data as an object
     var taskDataObj = {
     name: taskNameInput,
-    type: taskTypeInput
+    type: taskTypeInput,
+    status: "to do"
 
     
   }
@@ -59,6 +64,10 @@ var taskFormHandler = function(event) {
         tasksToDoEl.appendChild(listItemEl);
         //Increase task counter for next unique id
         taskIdCounter++;
+
+
+        console.log(taskDataObj);
+        console.log(taskDataObj.status);
     };
 
     var createTaskActions = function(taskId) {
